@@ -11,7 +11,11 @@ const navLinks = [
   { name: "For Parents", href: "#parents" },
 ];
 
-export const Navbar = () => {
+interface NavbarProps {
+  onGetStartedClick?: () => void;
+}
+
+export const Navbar = ({ onGetStartedClick }: NavbarProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -48,7 +52,7 @@ export const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="glow" size="sm" className="font-display">
+            <Button variant="glow" size="sm" className="font-display" onClick={onGetStartedClick}>
               <Sparkles className="w-4 h-4" />
               Get Started
             </Button>
@@ -81,7 +85,7 @@ export const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="glow" size="sm" className="font-display mt-2">
+              <Button variant="glow" size="sm" className="font-display mt-2" onClick={onGetStartedClick}>
                 <Sparkles className="w-4 h-4" />
                 Get Started
               </Button>

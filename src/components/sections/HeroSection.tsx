@@ -4,7 +4,11 @@ import { ChevronDown } from "lucide-react";
 import astronaut from "@/assets/astronaut.webp";
 import { CosmicBackground } from "@/components/CosmicBackground";
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  onGetStartedClick?: () => void;
+}
+
+export const HeroSection = ({ onGetStartedClick }: HeroSectionProps) => {
   return (
     <CosmicBackground parallax overlayOpacity={0.5}>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -56,7 +60,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               className="pt-2"
             >
-              <Button variant="glow" size="default" className="font-display">
+              <Button variant="glow" size="default" className="font-display" onClick={onGetStartedClick}>
                 Get started
               </Button>
             </motion.div>
